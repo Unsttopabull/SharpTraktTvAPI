@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7E74D034-0D99-4E49-BD80-F96B04D3ECA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frost.SharpTraktTvAPI</RootNamespace>
+    <AssemblyName>Frost.SharpTraktTvAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Frost.SharpTraktTvAPI.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ThirdParty\JsonNET\Net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountApi.cs" />
+    <Compile Include="Models\Account\AccountCreateInfo.cs" />
+    <Compile Include="Models\Account\AccountSettingsInfo.cs" />
+    <Compile Include="Models\Account\SettingsModels\AccountSettings.cs" />
+    <Compile Include="Models\Account\SettingsModels\Connections.cs" />
+    <Compile Include="Models\Account\SettingsModels\Facebook.cs" />
+    <Compile Include="Models\Account\SettingsModels\Path.cs" />
+    <Compile Include="Models\Account\SettingsModels\Profile.cs" />
+    <Compile Include="Models\Account\SettingsModels\Prowl.cs" />
+    <Compile Include="Models\Account\SettingsModels\Ratings.cs" />
+    <Compile Include="Models\Account\SettingsResponse.cs" />
+    <Compile Include="Models\Account\SettingsModels\SharingText.cs" />
+    <Compile Include="Models\Account\SettingsModels\Shouts.cs" />
+    <Compile Include="Models\Account\SettingsModels\Tumblr.cs" />
+    <Compile Include="Models\Account\SettingsModels\Twitter.cs" />
+    <Compile Include="Models\Account\SettingsModels\Viewing.cs" />
+    <Compile Include="Models\Genreal\Images.cs" />
+    <Compile Include="Models\Movie\SummariesModels\MovieSummary.cs" />
+    <Compile Include="Models\Movie\SummariesModels\MovieSummaries.cs" />
+    <Compile Include="Models\Movie\SummariesModels\MovieSummarySearch.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Actor.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Director.cs" />
+    <Compile Include="Models\Movie\SummaryModels\HeadshotImage.cs" />
+    <Compile Include="Models\Movie\MovieSummaryResponse.cs" />
+    <Compile Include="Models\Movie\SummaryModels\People.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Producer.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Ratings.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Stats.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Top_Watchers.cs" />
+    <Compile Include="Models\Movie\SummaryModels\Writer.cs" />
+    <Compile Include="Models\Search\MovieMatch.cs" />
+    <Compile Include="Models\Search\MovieSearchResponse.cs" />
+    <Compile Include="Models\Search\Ratings.cs" />
+    <Compile Include="Models\StatusResponse.cs" />
+    <Compile Include="MovieApi.cs" />
+    <Compile Include="SearchApi.cs" />
+    <Compile Include="TraktTvException.cs" />
+    <Compile Include="URLBuilder.cs" />
+    <Compile Include="SharpTraktTv.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetPath)" "E:\Workspace\Ostalo\Repos\Git\FrostMediaManager2\UI\RibbonUI\bin\Debug\Downloaders" /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
